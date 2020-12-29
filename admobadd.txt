@@ -1,0 +1,30 @@
+build gradle
+----------------------------------------
+implementation 'com.google.android.gms:play-services-ads:11.6.0'
+
+activitymain
+---------------
+xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+<com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/iklan">
+</com.google.android.gms.ads.AdView>
+
+string.xml
+---------------
+<string name="iklan"></string>
+
+mainactivitry
+-------------------
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
